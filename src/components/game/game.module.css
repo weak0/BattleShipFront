@@ -1,0 +1,29 @@
+
+.playerSection {
+    margin: 0px 10px;
+    padding: 20px;
+    border-radius: 25px;
+}
+.playerSection h2 {
+    color: white;
+    margin: 10px;
+    padding: 0px;
+    text-align: center;
+}
+.game {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    
+}
+
+@media screen and (max-width: 1000px) {
+    .game {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+    

@@ -1,0 +1,29 @@
+header, footer  {
+
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+header a, header div, footer div {
+  margin: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+}
+header a:hover {
+  color: #36b4eb;
+}
+
+footer div {
+  font-size: 12px;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
