@@ -1,5 +1,6 @@
 import styles from './menu.module.css'
 import { IGameData } from './IGameData'
+import { createGame } from '../../api/createGame';
 
 
 const Menu = ({setterIsGameStarted}: { setterIsGameStarted: (gb1 : number, gb2 : number) => void; }) => {
@@ -7,20 +8,10 @@ const Menu = ({setterIsGameStarted}: { setterIsGameStarted: (gb1 : number, gb2 :
 
     const handleStartGame = async () => {
         try {
-            const response = await fetch('https://localhost:7031/start', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            if (response.status === 200) {
-                const data: IGameData  = await response.json()
+            const data : IGameData = await createGame(); 
                 setterIsGameStarted(data.playerOneOponentBoardId, data.playerTwoOponentBoardId);
-            } else {
-            alert('Error')
-            }
         } catch (error) {
-            alert('Error')
+            alert('Something went wrong')
         }
     }
     return (

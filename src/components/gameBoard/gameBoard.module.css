@@ -36,7 +36,7 @@ transition: 0.2s;
 background-color: #032852;
 }
 
-.labelHorizontaly {  
+.horizontalLabel {  
 display: grid;
 grid-template-columns: repeat(10, 50px); 
 gap: 1px;
@@ -44,13 +44,15 @@ text-align: center;
 height: 30px;
 margin-left: 30px;
 }
-.labelVerticaly {  
+
+.verticalLabel {  
 display: grid;
 width: 30px;
 grid-template-rows: repeat(10, 50px); 
 gap: 1px;
 text-align: center;
 }
+
 .horizontalElement, .verticalElement {
 height: 100%;
 width: 100%;
@@ -60,7 +62,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 }
-.bardVertcialLabelContainer {
+
+.boardVertcialLabelContainer {
 display: flex;
 }
-

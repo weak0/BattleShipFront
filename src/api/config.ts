@@ -1,0 +1,1 @@
+export const ConnectionsString : string =  "https://localhost:7031"

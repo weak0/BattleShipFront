@@ -27,3 +27,8 @@ footer div {
   flex-direction: column;
   justify-content: space-between;
 }
+
+.fa-arrow-right {
+  transition: 0.3s;
+}
+

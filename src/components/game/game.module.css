@@ -17,6 +17,20 @@
     justify-content: space-around;
     
 }
+.turnPointer {
+
+    color: white;
+    display: flex;
+    padding: 0 10px;
+    flex-direction: column;
+    justify-content: center;
+}
+.turnPointer p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
 
 @media screen and (max-width: 1000px) {
     .game {
@@ -26,4 +40,5 @@
         margin-bottom: 20px;
     }
 }
+
     

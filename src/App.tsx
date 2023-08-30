@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from 'react';
-import Menu from './components/menu/menu';
-import Game from './components/game/game';
+import Menu from './components/menu/Menu';
+import Game from './components/game/Game';
 
 function App() {
   const [isGameStarted, setIsGameStarted] = useState(false);
@@ -26,6 +26,7 @@ function App() {
       </header>
       <main>
         {isGameStarted ? (
+          //POPRAWKA NAZW
           <Game pOBId={playerOneOpponnentBoardId} pTBId={playerTwoOpponnentBoardId} />
         ) : (
           <Menu setterIsGameStarted={handleIsGameStarted} />
