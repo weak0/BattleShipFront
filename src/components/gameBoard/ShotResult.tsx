@@ -11,9 +11,9 @@ export const translateShotResult = (shotResult: ShotResult) => {
         case ShotResult.Miss:
             return 'Miss';
         case ShotResult.Hit:
-            return 'Hit';
+            return 'Hit!';
         case ShotResult.Sunk:
-            return 'Sunk';
+            return 'Sunk!';
         case ShotResult.GameOver:
             return 'Game Over';
         default:

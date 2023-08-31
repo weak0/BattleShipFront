@@ -1,0 +1,65 @@
+.shotNtfBackdrop {
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.shotContainer {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #5ea2f0;
+    border-radius: 5px;
+    padding: 10px 20px;
+
+}
+
+.gameOverBackdrop {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.gameOverContainer {
+    background-color: black;
+    border: 2px solid #5ea2f0;
+    border-radius: 5px;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.gameOverContainer h2 {
+    margin-bottom: 10px;
+}
+
+.gameOverContainer p {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.gameOverButton {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #36b4eb;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+.gameOverButton:hover {
+    background-color: #296d8a;
+}

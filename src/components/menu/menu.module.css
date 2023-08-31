@@ -6,12 +6,11 @@
     background-color: rgba(0, 0, 0, 0.7);
     padding: 20px 40px;
     width: max-content;
-    position: fixed;
+    position: relative;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
 }
-.container button {
+.menuButton {
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
@@ -23,6 +22,6 @@
     width: 100%;
     transition: 0.3s;
 }
-.container button:hover {
+.menuButton:hover {
     background-color: #296d8a;
 }

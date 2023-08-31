@@ -1,0 +1,63 @@
+.settingsContainer{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    z-index: 1;
+    width: 500px;
+    padding:  10px 20px;
+    border-radius: 15px;
+    border: 2px solid #5ea2f0;  
+
+}
+.buttonSave, .buttonClose {
+    background-color: #4CAF50;
+    border-radius: 5px;
+    margin-top: 15px;
+    width: 100%;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+.buttonClose {
+    background-color: #f44336;
+}
+.buttonClose:hover {
+    background-color: #d32f2f;
+}
+.buttonSave:hover {
+    background-color: #3e8e41;
+}
+
+.shipsSettings {
+display: flex;
+flex-direction: column;
+}
+
+
+.numberOfShipsInput, .playerNameInput {
+    width: 50px;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 2px solid #5ea2f0;   
+    
+}
+.playerNameInput {
+    width: 100px;
+}
+
+
+.formGroup {
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
