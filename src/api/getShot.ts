@@ -1,10 +1,15 @@
-import { ShotResult } from "../components/gameBoard/ShotResult";
+import {  IShot } from "../components/gameBoard/ShotResult";
 import { ConnectionsString } from "./connectionString";
 
-export const getShot = async (cellNumber: number, boardId: number): Promise<ShotResult> => {
-    const response = await fetch(`${ConnectionsString}/start/shot?GameBoardId=${boardId}&Cordinate=${cellNumber}`)
+export const getShot = async (cellNumber: number, boardId: number): Promise<IShot> => {
+    const response = await fetch(`${ConnectionsString}/shot?GameBoardId=${boardId}&Cordinate=${cellNumber}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
     if (response.ok) {
-        const data: ShotResult = await response.json()
+        const data: IShot = await response.json()
         return data
     } else {
         throw new Error(response.statusText)

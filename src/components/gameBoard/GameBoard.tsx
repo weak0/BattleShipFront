@@ -3,8 +3,10 @@ import { useState } from 'react';
 import BoardLabel from './BoardLabel';
 import Cell from './Cell';
 import styles from './gameBoard.module.css';
-import { ShotResult } from './ShotResult';
+import { IShot, ShotResult, deafultShot } from './ShotResult';
 import ShotNotification from '../notifications/ShotNotification';
+
+
 
 const GameBoard = ({ OpponnentBoardId, isYourTurn, handleChangeTurn, handleGameOver }: { 
   OpponnentBoardId: number, 
@@ -14,7 +16,7 @@ const GameBoard = ({ OpponnentBoardId, isYourTurn, handleChangeTurn, handleGameO
 }) => {
 
   const [isNotificationVisible, setIsNotificationVisible ] = useState(false);
-  const [shotResult, setShotResult] = useState<ShotResult>(ShotResult.Default);
+  const [shotResult, setShotResult] = useState<IShot>(deafultShot);
 
   const handleShotType = () => {
     setIsNotificationVisible(true);
@@ -25,15 +27,16 @@ const GameBoard = ({ OpponnentBoardId, isYourTurn, handleChangeTurn, handleGameO
   }
 
 
-  const shotHandler = async (cellNumber: number): Promise<ShotResult> => {
+  const shotHandler = async (cellNumber: number): Promise<IShot> => {
     if (!isYourTurn) {
       alert('Not your turn');
-      return ShotResult.Default;
+      return deafultShot
     }
     try {
-      const result: ShotResult = await getShot(cellNumber, OpponnentBoardId);
+      const result: IShot = await getShot(cellNumber, OpponnentBoardId);
       handleChangeTurn();
-      if (result === ShotResult.GameOver) {
+      if (result.shotResult === ShotResult.GameOver) {
+        console.log('game over');
         handleGameOver();
       }else {
         setShotResult(result);
@@ -43,7 +46,7 @@ const GameBoard = ({ OpponnentBoardId, isYourTurn, handleChangeTurn, handleGameO
     }
     catch (error) {
       alert("Something went wrong");
-      return ShotResult.Default;
+      return deafultShot
     }
     
   }
@@ -60,7 +63,7 @@ const GameBoard = ({ OpponnentBoardId, isYourTurn, handleChangeTurn, handleGameO
         <BoardLabel orientation="vertical" />
       </div>
       <BoardLabel orientation="horizontal" />
-      { isNotificationVisible && <ShotNotification handleBackdropClick={() => setIsNotificationVisible(false)} isSunkActive={isNotificationVisible} shotType={shotResult} />}
+      { isNotificationVisible && <ShotNotification handleBackdropClick={() => setIsNotificationVisible(false)} isSunkActive={isNotificationVisible} shotDto={shotResult} />}
     </div>
   );
 };

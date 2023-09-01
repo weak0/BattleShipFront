@@ -9,15 +9,20 @@ const ShipSettings = () => {
     const [ships3, setShips3] = useState(1)
     const [ships2, setShips2] = useState(2)
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            configureGame(ships5, ships4, ships3, ships2);
-            alert('Settings changed')
+            const isSuccess = await configureGame(ships5, ships4, ships3, ships2);
+            if (isSuccess) {
+                alert('Settings changed');
+            }
         } catch (error) {
-            alert('Something went wrong')
+            console.error('Error:', error);
+            alert('Something went wrong');
         }
     }
+        
+ 
 
     return (
         <>

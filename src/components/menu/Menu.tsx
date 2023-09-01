@@ -3,15 +3,16 @@ import { IGameData } from './IGameData'
 import { createGame } from '../../api/createGame';
 import {useState} from 'react'
 import Settings from '../settings/Settings';
+import { useSettingsContext } from '../../context/settingsContext';
 
 
 const Menu = ({ setterIsGameStarted }: { setterIsGameStarted: (gb1: number, gb2: number) => void; }) => {
     const [isSettingsActive, setIsSettingsActive] = useState(false);
-
+    const context = useSettingsContext();
 
      const handleStartGame = async () => {
         try {
-            const data: IGameData = await createGame();
+            const data: IGameData = await createGame(context.playerOneName, context.playerTwoName);
             setterIsGameStarted(data.playerOneOponentBoardId, data.playerTwoOponentBoardId);
         } catch (error) {
             alert('Something went wrong')

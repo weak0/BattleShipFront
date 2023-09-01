@@ -1,18 +1,18 @@
-import { ShotResult } from './ShotResult'
+import { IShot, ShotResult, deafultShot } from './ShotResult'
 import styles from './gameBoard.module.css'
 import { useState, useEffect, useRef } from 'react'
-const Cell = ({ cellNumber, shotHandler }: { cellNumber: number, shotHandler: (cellNumber: number) => Promise<ShotResult> }) => {
+const Cell = ({ cellNumber, shotHandler }: { cellNumber: number, shotHandler: (cellNumber: number) => Promise<IShot> }) => {
 
-    const [cellStatus, setCellStatus] = useState<ShotResult>(ShotResult.Default)
+    const [cellStatus, setCellStatus] = useState<IShot>(deafultShot)
     const [isClicked, setIsClicked] = useState<boolean>(false) 
 
     const handleClick = async () => {
         if (isClicked) {
             return;
         }
-        const result: ShotResult = await shotHandler(cellNumber)
+        const result : IShot = await shotHandler(cellNumber)
         setCellStatus(result)
-       if (result !== ShotResult.Default) setIsClicked(true)
+       if (result.shotResult !== ShotResult.Default) setIsClicked(true)
     }
 
     const cellRef = useRef<HTMLDivElement>(null);
@@ -20,7 +20,7 @@ const Cell = ({ cellNumber, shotHandler }: { cellNumber: number, shotHandler: (c
 
     useEffect(() => {
         if (cellRef.current !== null) {
-            switch (cellStatus) {
+            switch (cellStatus.shotResult) {
                 case ShotResult.Miss:
                     cellRef.current.style.background = 'red';
                     break;
