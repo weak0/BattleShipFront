@@ -1,1 +1,1 @@
-export const ConnectionsString : string =  "https://localhost:7031"
+export const ConnectionsString : string =  "https://battleshipmg.azurewebsites.net"
