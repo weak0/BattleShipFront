@@ -67,3 +67,17 @@ align-items: center;
 .boardVertcialLabelContainer {
 display: flex;
 }
+
+@media screen and (max-width: 1250px) {
+    .board {
+        grid-template-columns: repeat(10, 40px); 
+        grid-template-rows: repeat(10, 40px); 
+        
+    }
+    .horizontalLabel {
+        grid-template-columns: repeat(10, 40px); 
+    }
+    .verticalLabel {
+        grid-template-rows: repeat(10, 40px); 
+    }
+}
